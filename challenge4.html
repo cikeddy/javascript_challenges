@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 4</title>
+    <style>
+    body{
+        margin: 2%;
+        border: 1px solid black;
+        background-color: #b3b3b3;
+    }
+    #image{
+        line-height:325px;
+        width: 388px;
+        height: 325px;
+        border:5px solid black;
+        margin:0 auto;
+        background-repeat: no-repeat;
+        color:#FFFFFF;
+        text-align: center;
+        background-color: #8e68ff;
+		background-size: cover;
+        margin-bottom:25px;
+        font-size:150%;
+    }
+    .preview{
+        width:10%;
+        margin-left:17%;
+        border: 10px solid black;
+    }
+    img{
+        width:95%;
+    }
+    h1{
+        text-align: center;
+    }
+    </style>
+
+    <script>
+	function upDate(previewPic){
+		let img_src = previewPic.getAttribute('src');
+  		document.querySelector("#image").innerHTML = previewPic.alt;
+		document.querySelector("#image").style.backgroundImage = "url("+img_src+")";
+	}
+	
+	function unDo(){
+		document.querySelector("#image").innerHTML = "Hover or tab over/into an image below.";
+		document.querySelector("#image").style.backgroundImage = 'none';
+	}
+    </script>
+</head>
+
+<body>
+    <h1>Challenge 4</h1>
+        <div id = "image">
+            Hover or tab over/into an image below.
+        </div>
+
+        <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview" tabindex ="1"
+            alt = "An athlete loading up a barbell"
+            src = "active-adult-athlete-703012.jpg"
+			onmouseover = "upDate(this)" onmouseleave = "unDo()"
+			onfocus = "upDate(this)";>
+
+
+        <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->  
+        <img class = "preview" tabindex="2"
+            alt = "An athlete back squatting" 
+            src = "adult-barbell-body-17840.jpg"
+			onmouseover = "upDate(this)" onmouseleave = "unDo()"
+			onfocus = "upDate(this)" onfocusout = unDo();>
+    
+        <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview" tabindex = "3"
+            src = "adventure-athlete-athletic-235922.jpg" 
+            alt = "An athlete running outside"
+			onmouseover = "upDate(this)" onmouseleave = "unDo()"
+			onfocus = "upDate(this)" onfocusout = unDo();>
+	
+	 <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview" tabindex = "4" 
+            src = "balance-exercise-fitness-317155.jpg" 
+            alt = "An athlete doing yoga"
+			onmouseover = "upDate(this)" onmouseleave = "unDo()"
+			onfocus = "upDate(this)" onfocusout = unDo();>
+	
+	 <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview" tabindex = "5" 
+            src = "biceps-bodybuilding-chinese-1111304.jpg" 
+            alt = "An athlete resistance training"
+			onmouseover = "upDate(this)" onmouseleave = "unDo()"
+			onfocus = "upDate(this)" onfocusout = unDo();>
+	
+	 <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview" tabindex = "6" 
+            src = "crossfit-exercise-fitness-28080.jpg" 
+            alt = "An athlete using battle ropes"
+			onmouseover = "upDate(this)" onmouseleave = "unDo()"
+			onfocus = "upDate(this)" onfocusout = unDo();>
+</body>
+</html>
+    
