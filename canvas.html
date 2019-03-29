@@ -17,8 +17,6 @@
 	
 	<script>
 		
-	console.log(TouchEvent.move);
-		
 	var canvas = document.getElementById("canvas");
 	var view_h = window.visualViewport.height;
 	var view_w = window.visualViewport.width;
@@ -32,6 +30,7 @@
 		canvas.width = view_w*.8;
 		canvas.height = view_h*.8;
 	}
+		
 	canvas_size();
 		
 	function draw() {
@@ -48,8 +47,8 @@
 	})
 		
 	window.addEventListener('touchmove', function(e){
-		x = e.touches.screenX;
-		y = e.touches.screenY;
+		x = e.screenX;
+		y = e.screenY;
 		draw();
 	})
 	
