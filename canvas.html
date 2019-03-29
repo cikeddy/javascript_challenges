@@ -17,7 +17,7 @@
 	
 	<script>
 		
-	console.log(window);
+	console.log(TouchEvent.move);
 		
 	var canvas = document.getElementById("canvas");
 	var view_h = window.visualViewport.height;
@@ -44,13 +44,13 @@
 	window.addEventListener('mousemove', function (e) {
 		x = e.pageX;
 		y = e.pageY;
-		draw()
+		draw();
 	})
 		
 	window.addEventListener('touchmove', function(e){
-		x = e.pageX;
-		y = e.pageY;
-		draw()
+		x = e.touches.screenX;
+		y = e.touches.screenY;
+		draw();
 	})
 	
 	window.addEventListener('keyup', function(e) {
