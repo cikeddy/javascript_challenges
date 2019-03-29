@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+</head>
+<style type="text/css">
+	canvas {
+		border: 1px solid black;
+	}
+	</style>
+	
+<body>
+	<canvas id="canvas" width="500" height="500">
+		A canvas for drawing.
+	</canvas>
+	
+	<script>
+		
+	console.log(window);
+		
+	var canvas = document.getElementById("canvas");
+	var view_h = window.visualViewport.height;
+	var view_w = window.visualViewport.width;
+	var ctx = canvas.getContext("2d");
+	var x = 100;
+	var y = 70;
+	var color = "red";
+	var radius = 20;
+		
+	function canvas_size(){
+		canvas.width = view_w*.8;
+		canvas.height = view_h*.8;
+	}
+	canvas_size();
+		
+	function draw() {
+		ctx.beginPath();
+		ctx.arc(x,y,radius,0,2*Math.PI);
+		ctx.fillStyle= color;
+		ctx.fill();
+	}
+		
+	window.addEventListener('mousemove', function (e) {
+		x = e.pageX;
+		y = e.pageY;
+		draw()
+	})
+		
+	window.addEventListener('touch', function(e)){
+		x = e.pageX;
+		y = e.pageY;
+		draw()
+	})
+	
+	window.addEventListener('keyup', function(e) {
+		if (e.keyCode==32){
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+		} else if (e.keyCode=='89') {
+			color = 'yellow';
+		} else if (e.keyCode=='66') {
+			color = 'blue';
+		} else if (e.keyCode=='114'){
+			color = 'red';
+		} else if(e.keyCode=='38'){
+			radius +=1;
+		} else if (radius > 1 && e.keyCode =='40'){
+			radius -=1;
+		}})
+		
+
+	</script>
+</body>
+</html>
