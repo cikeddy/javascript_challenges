@@ -47,8 +47,8 @@
 	})
 		
 	window.addEventListener('touchmove', function(e){
-		x = e.screenX;
-		y = e.screenY;
+		x = e.touches[0].screenX;
+		y = e.touches[0].screenY;
 		draw();
 	})
 	
