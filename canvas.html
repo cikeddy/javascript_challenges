@@ -13,10 +13,13 @@
 <body>
 	<canvas id="canvas" width="500" height="500">
 		A canvas for drawing.
-	</canvas>
+	</canvas> <br>
+	<label> Click the swatch to pick your own color!  <input type="color" value="#FF0000" onChange="pickColor(this.value)"></label>
 	
 	<script>
 		
+		
+/////////Variables/////////
 	var canvas = document.getElementById("canvas");
 	var view_h = window.innerHeight;
 	var view_w = window.innerWidth;
@@ -25,7 +28,9 @@
 	var y = 70;
 	var color = "red";
 	var radius = 20;
-		
+	
+/////////Functions/////////
+//  responsive canvas function
 	function canvas_size(){
 		canvas.width = view_w*.8;
 		canvas.height = view_h*.8;
@@ -33,13 +38,19 @@
 		
 	canvas_size();
 		
+//	draw function	
 	function draw() {
 		ctx.beginPath();
 		ctx.arc(x,y,radius,0,2*Math.PI);
 		ctx.fillStyle= color;
 		ctx.fill();
 	}
+//  color picker function
+	function pickColor(colVal) {
+		color = colVal;
+	}
 		
+///////////// Event Listeners//////////		
 //	drawing based on mouse position 	
 	window.addEventListener('mousemove', function (e) {
 		x = e.offsetX;
