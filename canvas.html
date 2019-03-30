@@ -67,6 +67,7 @@
 		
 //	drawing based on touch (mobile)	
 	window.addEventListener('touchmove', function(e){
+		e.preventDefault;
 		x = e.touches[0].screenX;
 		y = e.touches[0].screenY;
 		draw();
