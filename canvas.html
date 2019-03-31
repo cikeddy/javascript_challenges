@@ -14,14 +14,14 @@
 	<canvas id="canvas" width="500" height="500">
 		A canvas for drawing.
 	</canvas> <br>
-	<ul> <li>Press the Y key to change color to yellow</li>
+	<ul id="directions"><li>Press the Y key to change color to yellow</li>
 		<li>Press the B key to change color to blue</li>
 		<li>Press the R key to change the color to red</li>
 		<li>Press the up and down arrows to change the stroke of the line</li>
-		<li>Press the space bar to clear (on computer) or change the orientation (on mobile)</li>
+		<li>Press the space bar to clear the canvas</li>
 	
 	</ul>
-	<label> Click the swatch to pick your own color (on computer) or enter a color in the text box (on mobile)! <input type="color" value="#FF0000" onChange="pickColor(this.value)"></label>
+	<label> Choose your pen color! <input type="color" value="#FF0000" onChange="pickColor(this.value)"></label>
 	
 	<script>
 		
@@ -44,6 +44,11 @@
 	}
 		
 	canvas_size();
+
+//	changing directions for mobile (code from https://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device-in-jquery)
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    document.getElementById(directions).innerHTML = "<ul><li>If you aren't using Safari, enter a color in the text box below the canvas</li> <li>Change the orientation to clear the canvas</li></ul>"
+}	
 		
 //	draw function	
 	function draw() {
@@ -89,8 +94,10 @@
 			radius -=2;
 		}})
 		
+//	orientation change events for mobile
 	window.addEventListener ('orientationchange', function(e) {
 		ctx.clearRect(0,0,canvas.width, canvas.height);
+		canvas_size();
 		})
 		
 
