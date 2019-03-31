@@ -38,9 +38,14 @@
 	
 /////////Functions/////////
 //  responsive canvas function
-	function canvas_size(){
+	function canvas_size(reverse=false){
+		if (reverse==false){
 		canvas.width = view_w*.8;
 		canvas.height = view_h*.8;
+		} else {
+		canvas.height = view_w*.8;
+		canvas.width = view_h*.8;
+		}
 	}
 		
 	canvas_size();
@@ -97,8 +102,9 @@
 //	orientation change events for mobile
 	window.addEventListener ('orientationchange', function(e) {
 		ctx.clearRect(0,0,canvas.width, canvas.height);
-		canvas.height = view_w*.8;
-		canvas.width = view_h*.8;
+		if (canvas.width > canvas.height) {
+		canvas.size(true);
+		}
 		})
 		
 
