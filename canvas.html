@@ -17,6 +17,7 @@
 	<h1>What can I do?</h1>
 	<ul id="directions"><li>Press the Y key to change color to yellow</li>
 		<li>Press the B key to change color to blue</li>
+		<li>Press the G key to change color to green</li>
 		<li>Press the R key to change the color to red</li>
 		<li>Press the up and down arrows to change the stroke of the line</li>
 		<li>Press the space bar to clear the canvas</li>
@@ -89,6 +90,8 @@
 			color = 'blue';
 		} else if (e.keyCode=='82'){
 			color = 'red';
+		} else if (e.keyCode=='71'){
+			color = 'green';
 		} else if(radius < 50 && e.keyCode=='38'){
 			radius +=2;
 		} else if (radius > 2 && e.keyCode =='40'){
